@@ -15,6 +15,12 @@ class SimpleNet(nn.Module):
         super(SimpleNet, self).__init__()
         
         # define all layers, here
+        self.fc1 = nn.Linear(input_dim, hidden_dim)
+        self.fc2 = nn.Linear(hidden_dim, output_dim)
+        self.drop = nn.Dropout(0.3)
+        
+        # initialize the Sigmoid function
+        self.sig = nn.Sigmoid()
         
     
     ## TODO: Define the feedforward behavior of the network
@@ -24,5 +30,8 @@ class SimpleNet(nn.Module):
            :return: A single, sigmoid activated value
          '''
         # your code, here
-        
-        return x
+        # flatten image input
+        out = F.relu(self.fc1(x)) # activation on hidden layer
+        out = self.drop(out)
+        out = self.fc2(out)
+        return self.sig(out) # returning class score
