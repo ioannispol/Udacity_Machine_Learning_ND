@@ -7,10 +7,11 @@ import pandas as pd
 # sklearn.externals.joblib is deprecated in 0.21 and will be removed in 0.23. 
 # from sklearn.externals import joblib
 # Import joblib package directly
-import joblib
+#import joblib
+from sklearn.externals import joblib
 
 ## TODO: Import any additional libraries you need to define a model
-
+from sklearn.linear_model import LogisticRegression
 
 # Provided model load function
 def model_fn(model_dir):
@@ -59,11 +60,11 @@ if __name__ == '__main__':
     
 
     ## TODO: Define a model 
-    model = None
+    model = LogisticRegression()
     
     
     ## TODO: Train the model
-    
+    model.fit(train_x, train_y)
     
     
     ## --- End of your code  --- ##
