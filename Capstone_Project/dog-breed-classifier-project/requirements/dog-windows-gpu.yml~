@@ -1,9 +1,6 @@
 name: dog-project
 channels:
 - conda-forge
-- scitools
-- esri
-- obspy
 - defaults
 dependencies:
 - _nb_ext_conf=0.3.0=py35_0
